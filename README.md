@@ -11,7 +11,7 @@ Implementation of classic data structures from scratch using Python.
 - [x] Queue
 - [x] HashMap
 - [x] Binary Search Tree
-- [ ] Graph 
+- [x] Graph 
 - [ ] Heap / Priority Queue
 - [ ] Trie 
 
@@ -22,6 +22,7 @@ python3 structures/stack.py
 python3 structures/queue.py
 python3 structures/hash_map.py
 python3 structures/binary_search_tree.py 
+python3 structures/graph.py 
 ```
 
 ---
