@@ -10,8 +10,10 @@ Implementation of classic data structures from scratch using Python.
 - [x] Stack
 - [x] Queue
 - [x] HashMap
-- [ ] Binary Tree
-- [ ] Binary Search Tree
+- [x] Binary Tree
+- [ ] Graph 
+- [ ] Heap / Priority Queue
+- [ ] Trie 
 
 ## How to run
 ```bash
@@ -20,6 +22,7 @@ python3 structures/stack.py
 python3 structures/queue.py
 python3 structures/hash_map.py
 python3 structures/binary_tree.py
+python3 structures/binary_search_tree.py 
 ```
 
 ---
@@ -52,18 +55,30 @@ Core operations: `set` (store key-value), `get` (retrieve by key), `delete` (rem
 
 **When to use:** caching, fast lookups, counting frequencies, avoiding duplicates.
 
-### Binary Tree 
+### Binary Tree
+A hierarchical structure where each node has at most two children — called `left` and `right`. Follows the **BST rule**: values smaller than the parent go left, larger go right. This makes search very efficient as you eliminate half the tree at each step.
 
+Core operations: `insert`, `search`, `delete` (3 cases: no children, one child, two children — handled with an inorder successor).
+
+**When to use:** fast search/insert/delete, sorted data, implementing maps and sets.
+
+### Binary Search Tree
+
+### Graph
+
+### Heap / Priority Queue
+
+### Trie 
 
 ---
 
 ## Time Complexity
 
-| Operation | Linked List | Stack | Queue | HashMap | Binary Tree 
+| Operation | Linked List | Stack | Queue | HashMap | Binary Tree |
 |---|---|---|---|---|---|
-| **Insert** | O(1) head / O(n) tail | O(1) | O(1) | O(1) avg | 
-| **Search** | O(n) | O(n) | O(n) | O(1) avg |
-| **Delete** | O(n) | O(1) | O(1) | O(1) avg |
-| **Access by index** | O(n) | O(n) | O(n) | O(1) avg |
+| **Insert** | O(1) head / O(n) tail | O(1) | O(1) | O(1) avg | O(log n) avg / O(n) worst |
+| **Search** | O(n) | O(n) | O(n) | O(1) avg | O(log n) avg / O(n) worst |
+| **Delete** | O(n) | O(1) | O(1) | O(1) avg | O(log n) avg / O(n) worst |
+| **Access by index** | O(n) | O(n) | O(n) | O(1) avg | N/A |
 
-> avg = average case. HashMap can degrade to O(n) in worst case due to collisions.
+> avg = average case. Binary Tree degrades to O(n) when unbalanced (e.g. inserting sorted data creates a straight line).

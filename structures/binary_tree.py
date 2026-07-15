@@ -51,9 +51,10 @@ class BinaryTree:
 
     def delete(self,data):
         if self.root is None:
-            print ("Nothing to delete here: binary tree empty. ")
+            print ("Nothing to delete here: binary tree empty.")
             return None
-        self._delete_recursive(self.root,data)
+        self.root = self._delete_recursive(self.root,data)
+        print (f"Element {data} deleted. ")
 
     def _delete_recursive(self, node, data):
         if node is None:
@@ -63,16 +64,24 @@ class BinaryTree:
         elif data > node.data:
             node.right = self._delete_recursive(node.right, data)
         else:
-            # Found the node to delete
             if node.left is None and node.right is None:
                 return None
             if node.left is None:
                 return node.right
             if node.right is None:
                 return node.left
-            # case 3 - two children
+
+            # Case where the element to delete has 2 children
+            successor = self._find_min(node.right) # searches for the smallest value of the right subtree
+            node.data = successor.data # replaces the current node data with the successor
+            node.right = self._delete_recursive(node.right, node.data) # deletes the child with the successor value
         return node
 
+    # Helper to find the smallest value of a subtree, used to manage a node with both children
+    def _find_min(self, node):
+        if node.left is None:
+            return node
+        return  self._find_min(node.left)
 
 tree = BinaryTree()
 tree.insert(5)
@@ -83,3 +92,8 @@ tree.insert(1)
 tree.search(3)   # should find it
 tree.search(8)   # should find it
 tree.search(99)  # should not find it
+tree.delete(3)
+
+tree.search(5)
+tree.delete(5)
+tree.search(5)
