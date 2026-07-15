@@ -10,7 +10,7 @@ Implementation of classic data structures from scratch using Python.
 - [x] Stack
 - [x] Queue
 - [x] HashMap
-- [x] Binary Tree
+- [x] Binary Search Tree
 - [ ] Graph 
 - [ ] Heap / Priority Queue
 - [ ] Trie 
@@ -21,7 +21,6 @@ python3 structures/linked_list.py
 python3 structures/stack.py
 python3 structures/queue.py
 python3 structures/hash_map.py
-python3 structures/binary_tree.py
 python3 structures/binary_search_tree.py 
 ```
 
@@ -55,14 +54,14 @@ Core operations: `set` (store key-value), `get` (retrieve by key), `delete` (rem
 
 **When to use:** caching, fast lookups, counting frequencies, avoiding duplicates.
 
-### Binary Tree
+### Binary Search Tree (BST)
 A hierarchical structure where each node has at most two children — called `left` and `right`. Follows the **BST rule**: values smaller than the parent go left, larger go right. This makes search very efficient as you eliminate half the tree at each step.
 
 Core operations: `insert`, `search`, `delete` (3 cases: no children, one child, two children — handled with an inorder successor).
 
-**When to use:** fast search/insert/delete, sorted data, implementing maps and sets.
+**Note**: The difference between this data structure and a plain binary tree is that this one follows a  left < parent < right rule as it keeps the data organized from smallest to largest.  
 
-### Binary Search Tree
+**When to use:** fast search/insert/delete, sorted data, implementing maps and sets.
 
 ### Graph
 
@@ -74,11 +73,11 @@ Core operations: `insert`, `search`, `delete` (3 cases: no children, one child, 
 
 ## Time Complexity
 
-| Operation | Linked List | Stack | Queue | HashMap | Binary Tree |
-|---|---|---|---|---|---|
-| **Insert** | O(1) head / O(n) tail | O(1) | O(1) | O(1) avg | O(log n) avg / O(n) worst |
-| **Search** | O(n) | O(n) | O(n) | O(1) avg | O(log n) avg / O(n) worst |
-| **Delete** | O(n) | O(1) | O(1) | O(1) avg | O(log n) avg / O(n) worst |
-| **Access by index** | O(n) | O(n) | O(n) | O(1) avg | N/A |
+| Operation | Linked List | Stack | Queue | HashMap | Binary Tree | BST |
+|---|---|---|---|---|---|---|
+| **Insert** | O(1) head / O(n) tail | O(1) | O(1) | O(1) avg | O(n) | O(log n) avg / O(n) worst |
+| **Search** | O(n) | O(n) | O(n) | O(1) avg | O(n) | O(log n) avg / O(n) worst |
+| **Delete** | O(n) | O(1) | O(1) | O(1) avg | O(n) | O(log n) avg / O(n) worst |
+| **Access by index** | O(n) | O(n) | O(n) | O(1) avg | O(n) | N/A |
 
 > avg = average case. Binary Tree degrades to O(n) when unbalanced (e.g. inserting sorted data creates a straight line).
