@@ -64,6 +64,13 @@ Core operations: `insert`, `search`, `delete` (3 cases: no children, one child, 
 **When to use:** fast search/insert/delete, sorted data, implementing maps and sets.
 
 ### Graph
+A non-linear structure made of **vertices** (nodes) and **edges** (connections between nodes). Unlike trees, graphs have no hierarchy — any node can connect to any other node. This implementation uses an **adjacency list** (dictionary) to store connections efficiently.
+
+Graphs can be **undirected** (connections go both ways, like Facebook friends) or **directed** (connections have direction, like Twitter followers).
+
+Core operations: `add_vertex`, `add_edge`, `remove_edge`, `remove_vertex`, `print_graph`.
+
+**When to use:** social networks, GPS navigation, recommendation systems, network routing.
 
 ### Heap / Priority Queue
 
@@ -71,13 +78,15 @@ Core operations: `insert`, `search`, `delete` (3 cases: no children, one child, 
 
 ---
 
+
 ## Time Complexity
 
-| Operation | Linked List | Stack | Queue | HashMap | Binary Tree | BST |
-|---|---|---|---|---|---|---|
-| **Insert** | O(1) head / O(n) tail | O(1) | O(1) | O(1) avg | O(n) | O(log n) avg / O(n) worst |
-| **Search** | O(n) | O(n) | O(n) | O(1) avg | O(n) | O(log n) avg / O(n) worst |
-| **Delete** | O(n) | O(1) | O(1) | O(1) avg | O(n) | O(log n) avg / O(n) worst |
-| **Access by index** | O(n) | O(n) | O(n) | O(1) avg | O(n) | N/A |
+| Operation | Linked List | Stack | Queue | HashMap | Binary Tree | BST | Graph |
+|---|---|---|---|---|---|---|---|
+| **Insert** | O(1) head / O(n) tail | O(1) | O(1) | O(1) avg | O(n) | O(log n) avg / O(n) worst | O(1) |
+| **Search** | O(n) | O(n) | O(n) | O(1) avg | O(n) | O(log n) avg / O(n) worst | O(V+E) |
+| **Delete** | O(n) | O(1) | O(1) | O(1) avg | O(n) | O(log n) avg / O(n) worst | O(V+E) |
+| **Access by index** | O(n) | O(n) | O(n) | O(1) avg | O(n) | N/A | N/A |
 
+> V = number of vertices, E = number of edges. Graph search/delete is O(V+E) because you may need to visit all vertices and edges.
 > avg = average case. Binary Tree degrades to O(n) when unbalanced (e.g. inserting sorted data creates a straight line).
